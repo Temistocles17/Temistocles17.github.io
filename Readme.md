@@ -27,6 +27,11 @@ sequenceDiagram
 
     Note right of browser: The browser executes the callback function that renders the notes
 
-    Note right of browser: The browser utomatically requests the /favicon.ico file. Error 404, not found.
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/favicon.ico
+    activate server
+    server-->>browser: [Error 404]
+    deactivate server
+
+    Note right of browser: The browser automatically requests the file favicon.ico to the server. 
 
 ```
