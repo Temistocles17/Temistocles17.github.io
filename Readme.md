@@ -1,43 +1,27 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>My fucking hjhjhjh </title>
-    <link href="styles/style.css" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans"
-        rel="stylesheet" />
+sequenceDiagram
+    participant browser
+    participant server
 
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
 
-  </head>
-  <body>
-    <!-- A coment! -->
-    <h1>My main title</h1>
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
 
-    <h2>Unordered list</h2>
-        <ul>  
-            <li>Apples</li>
-            <li>Knifes</li>
-            <li>Drugs</li>
-            <li>Oranges</li>
-        </ul>
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
 
-    <h2>Ordered list</h2>
-        <ol>  
-            <li>Apples</li>
-            <li>Knifes</li>
-            <li>Drugs</li>
-            <li>Oranges</li>
-        </ol>
+    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
 
-    <h3>A link</h3>
-    <a href="https://code.visualstudio.com/docs/?dv=linux64_deb" >The link</a>
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+    deactivate server
 
-    <h4>A paragraph</h4>
-
-    <p>asadsadsadsadsadsadsadasdasdsadsadsadasdsadsadsadsadsadsadsadsadsasddadsadkjffdslfdsdsf</p>
-    <p class="pepe">Second paragraph</p>
-    <img src="./images.jpeg" y test image />
-  </body>
-</html>
+    Note right of browser: The browser executes the callback function that renders the notes
