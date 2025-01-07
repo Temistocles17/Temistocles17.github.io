@@ -14,11 +14,13 @@ sequenceDiagram
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    
+    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server. Ths code is diferent from, note that is a diferent file that is requested.
+    
     activate server
     server-->>browser: the JavaScript file
     deactivate server
 
-    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server. Ths code is diferent from, note that is a diferent file that is requested.
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
@@ -31,5 +33,4 @@ sequenceDiagram
     deactivate server
 
     Note right of browser: The browser automatically requests the file favicon.ico to the server. 
-
 ```
